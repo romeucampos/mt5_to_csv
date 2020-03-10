@@ -24,9 +24,17 @@ def init():
 
 def test_symbols(timeframe=mt5.TIMEFRAME_D1, bars=1000):
     print('Init test bars...')
-    [print(symbol, mt5.copy_rates_from_pos(symbol, timeframe, 0, bars)[-1][4], '"BARS OK"') for symbol in symbols]
 
+    def symbol_erro(symbol):
+        try:
+            print(symbol, mt5.copy_rates_from_pos(symbol, timeframe, 0, bars)[-1][4], '"BARS OK"')
+        except RuntimeError:
+            print(f'ERRO NO SYMBOL "{symbol}"')
+            quit()
 
+    [ symbol_erro(symbol) for symbol in symbols ]
+ 
+ 
 def convert_csv(timeframe=mt5.TIMEFRAME_D1, bars=1000):
     print('Convert...')
     symbol_one = pd.DataFrame(mt5.copy_rates_from_pos(symbols[0], timeframe, 0, bars))
