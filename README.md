@@ -19,7 +19,6 @@ python mt5_to_csv.py
 Pode-se configurar os seguites parâmetros, no arquivo mt5_to_csv.py. 
 
 ```python
-TEST = True # Testar se o metatrader5 consegue carregar as barras. Recomendado na primeira vez que for rodar o script.
 TIME_FRAME = mt5.TIMEFRAME_D1  # Timeframe que desejar. Veja no link https://www.mql5.com/en/docs/integration/python_metatrader5/mt5copyratesfrom_py
 BARS = 1000 # Número de barras
 ```
